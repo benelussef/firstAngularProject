@@ -1,0 +1,60 @@
+{
+  "products": [
+    {
+      "id": 2,
+      "name": "Computer",
+      "price": "5000",
+      "quantity": 78,
+      "selected": true,
+      "available": true
+    },
+    {
+      "id": 3,
+      "name": "Printer",
+      "price": 5000,
+      "quantity": 200,
+      "selected": true,
+      "available": true
+    },
+    {
+      "id": 4,
+      "name": "Smartphone",
+      "price": 20005,
+      "quantity": 30,
+      "selected": true,
+      "available": false
+    },
+    {
+      "name": "HP ElitBook",
+      "price": "3500",
+      "quantity": "20",
+      "selected": true,
+      "available": true,
+      "id": 5
+    },
+    {
+      "name": "Dell",
+      "price": "4000",
+      "quantity": "10",
+      "selected": true,
+      "available": true,
+      "id": 6
+    },
+    {
+      "name": "Mac book",
+      "price": "5500",
+      "quantity": "5",
+      "selected": true,
+      "available": false,
+      "id": 7
+    },
+    {
+      "name": "Dell 830",
+      "price": "5700",
+      "quantity": "30",
+      "selected": true,
+      "available": true,
+      "id": 8
+    }
+  ]
+}
