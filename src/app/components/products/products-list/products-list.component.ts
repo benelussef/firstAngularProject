@@ -2,6 +2,7 @@ import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Observable} from "rxjs";
 import {ActionEvent, AppDataState, DataStateEnum, ProductActionsTypes} from "../../../state/product.state";
 import {Product} from "../../../model/product.model";
+import {EventDriverService} from "../../../services/event.driver.service";
 
 @Component({
   selector: 'app-products-list',
@@ -9,27 +10,32 @@ import {Product} from "../../../model/product.model";
   styleUrls: ['./products-list.component.css']
 })
 export class ProductsListComponent implements OnInit {
-  @Input() productsInput$:Observable<AppDataState<Product[]>>|null = null;
-  @Output() productEventEmitter:EventEmitter<ActionEvent> = new EventEmitter<ActionEvent>();
+  productsInput$:Observable<AppDataState<Product[]>>|null = null;
   readonly DataStateEnum = DataStateEnum;
-  constructor() { }
+  constructor(private eventDriverService:EventDriverService) { }
 
   ngOnInit(): void {
   }
 
   onSelect(p: Product) {
-     this.productEventEmitter.emit({type:ProductActionsTypes.SELECT_PRODUCT,payload:p});
+     //this.productEventEmitter.emit({type:ProductActionsTypes.SELECT_PRODUCT,payload:p});
+     this.eventDriverService.publishEvent({type:ProductActionsTypes.SELECT_PRODUCT,payload:p});
   }
 
   onDelete(p: Product) {
-    this.productEventEmitter.emit({type:ProductActionsTypes.DELETE_PRODUCT,payload:p});
+    //this.productEventEmitter.emit({type:ProductActionsTypes.DELETE_PRODUCT,payload:p});
+    this.eventDriverService.publishEvent({type:ProductActionsTypes.DELETE_PRODUCT,payload:p});
+
   }
 
   onEdit(p: Product) {
-    this.productEventEmitter.emit({type:ProductActionsTypes.EDIT_PRODUCT,payload:p});
+  //  this.productEventEmitter.emit({type:ProductActionsTypes.EDIT_PRODUCT,payload:p});
+    this.eventDriverService.publishEvent({type:ProductActionsTypes.EDIT_PRODUCT,payload:p});
+
   }
 
   onActionEvent($event: ActionEvent) {
-    this.productEventEmitter.emit($event);
+    //this.productEventEmitter.emit($event);
+    this.eventDriverService.publishEvent($event);
   }
 }

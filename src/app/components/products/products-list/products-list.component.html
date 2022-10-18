@@ -23,7 +23,7 @@
           <th>Delete</th>
           <th>Edit</th>
         </tr>
-       <app-product-item [product]="p" (productEventEmitter)="onActionEvent($event)" *ngFor="let p of result.data" style="display: contents"></app-product-item>
+       <app-product-item  *ngFor="let p of result.data" style="display: contents"></app-product-item >
       </table>
     </ng-container>
   </ng-container>
